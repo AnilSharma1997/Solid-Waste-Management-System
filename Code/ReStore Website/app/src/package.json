@@ -1,0 +1,29 @@
+{
+  "name": "restore-ecommerce-website",
+  "version": "1.0.0",
+<<<<<<< HEAD
+  "description": "Webapp to promote selling of recycled products",
+  "scripts": {
+=======
+  "description": "webapp to promote selling of recycled products",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+>>>>>>> Updated Code
+    "start": "node server.js"
+  },
+  "author": "Hexagineers",
+  "license": "ISC",
+<<<<<<< HEAD
+  "dependencies": {
+    "express": "^4.16.2",
+	"xmlhttprequest": "^1.8.0",
+	"body-parser": "1.18.2"
+  }
+}
+=======
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
+>>>>>>> Updated Code

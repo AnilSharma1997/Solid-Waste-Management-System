@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button below to Login.</p>
+
+<button onclick="login()">Login</button>
+
+<p id="login_credentials"></p>
+
+<p>Click the button below to Register.</p>
+
+<button onclick="register()">Register</button>
+
+<p id="registered_credentials"></p>
+
+<!-- -->
+<p>Click the button below to Select all Garments.</p>
+
+<button onclick="selProdOfCat()">Product List</button>
+
+<p id="all_products"></p>
+
+<p>Click the button below to Select all filters of Garments.</p>
+
+<button onclick="filters()">Filter List</button>
+
+<p id="all_filters"></p>
+
+<p>Click the button below to Select Product ID 1.</p>
+
+<button onclick="productDetails(1)">Product Details</button>
+
+<p id="porDuct_yaha_hai"></p>
+
+<p>Click the button below to Select all Offer products.</p>
+
+<button onclick="offerProducts()">Offers</button>
+
+<p id="offer_porDucts"></p>
+
+<p>Click the button below to Logout.</p>
+
+<button onclick="logout()">Logout</button>
+
+<p id="logout_response"></p>
+
+<p>Click the button below to see Operational_Areas.</p>
+
+<button onclick="operationArea()">Operational_Areas</button>
+
+<p id="areas"></p>
+
+<p>Click the button below to submit dummy form.</p>
+
+<button onclick="submitRequest()">Submit Form</button>
+
+<p id="foram"></p>
+
+<script>
+
+var authToken;
+var id;
+var credits;
+
+function register() {
+	var userName = document.getElementById("username").value;
+	var passWord = document.getElementById("password").value;
+	var confirmPassword = document.getElementById("confirmpassword").value;
+	var mobile = document.getElementById("mobile").value;
+	var name = document.getElementById("name").value;
+	var houseDetail = document.getElementById("housedetail").value;
+	var landmark = document.getElementById("landmark").value;
+	var city = document.getElementById("city").value;
+	var state = document.getElementById("state").value;
+	var pincode = document.getElementById("pincode").value;
+
+	var request= new XMLHttpRequest();
+
+	if(userName === "" || passWord === "" || confirmpassword === "" || mobile === "" || name === "" || houseDetail === "" || landmark === "" || city === "" || state === "" || pincode === "") {
+		document.getElementById("error_message").innerHTML = "Please fill all the fields";
+	} else if(passWord !== confirmPassword) {
+		document.getElementById("error_message").innerHTML = "Password and Confirm Password doesn't match!";
+	} else if(pincode.length !== 6) {
+		document.getElementById("error_message").innerHTML = "Invalid Pincode!";
+	} else {
+
+		request.onreadystatechange= function(){
+			console.log("Request state = "+request.readyState+"Status: "+this.status+", Response: "+this.responseText);
+			if (request.readyState === XMLHttpRequest.DONE){
+				if(request.status=== 200){
+					authToken = JSON.parse(this.responseText).auth_token;
+					id = JSON.parse(this.responseText).user_id;
+					var username = JSON.parse(this.responseText).username;
+					document.getElementById("registered_credentials").innerHTML = "Token = "+authToken+", user_id = "+ id + ", username = " + username;
+				}
+				else if(request.status=== 403){
+					console.log('Incorrect credentials');
+				}
+				else if(request.status=== 500){
+					console.log('Something went wrong');
+				}
+				else{
+					console.log("Other error with code: "+this.status);
+				}
+			}
+		}
+
+		//make the request
+		request.open('POST', 'https://restore.financially92.hasura-app.io/register', true);
+		request.setRequestHeader('Content-Type', 'application/json');
+		request.send(JSON.stringify({
+			username: userName,
+			password: passWord,
+			mobile: mobile,
+			name: name,
+			houseDetail: houseDetail,
+			landmark: landmark,
+			city: city,
+			state: state,
+			pincode: pincode
+		}));
+	}
+}
+
+function login() {
+
+	var userName = "johnsmith";
+	var passWord = "johnsmith";
+
+	var request= new XMLHttpRequest();
+
+	request.onreadystatechange= function(){
+		if (request.readyState === XMLHttpRequest.DONE){
+			if(request.status=== 200){
+				authToken = JSON.parse(this.responseText).auth_token;
+				id = JSON.parse(this.responseText).user_id;
+				credits = JSON.parse(this.responseText).user_credits;
+				document.getElementById("login_credentials").innerHTML = "Token = "+authToken+", ID: "+ id +", credits = "+credits;
+			}
+			else if(request.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(request.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log(this.status);
+			}
+		}
+	}
+
+	//make the request
+	request.open('POST', 'https://restore.financially92.hasura-app.io/login', true);
+	request.setRequestHeader('Content-Type', 'application/json');
+	request.send(JSON.stringify({username: userName, password: passWord}));
+}
+
+function selProdOfCat() {
+
+	var categoryName = "Garments";
+
+	/*if(authToken === undefined) {
+		document.getElementById("all_products").innerHTML = "Login or Register First";
+	}
+	else {*/
+	var prodReq= new XMLHttpRequest();
+
+	prodReq.onreadystatechange= function(){
+		if (prodReq.readyState === XMLHttpRequest.DONE){
+			if(prodReq.status=== 200){
+				var prodRes = JSON.parse(prodReq.responseText);
+				/*var prodLen = prodRes.length;
+				var prodList;
+				for(var i=0; i < prodLen; i++) {
+					var data = {
+						prodID: prodRes[i].Product_ID,
+						price: prodRes[i].Price
+					}
+					prodList += createCardProdList(data);
+				}
+				document.getElementById("all_products").innerHTML = prodList;*/
+				document.getElementById("all_products").innerHTML = prodRes;
+			}
+			else if(prodReq.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(prodReq.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log("Product Status Code:"+prodReq.status+" Response "+prodReq.responseText);
+			}
+		}
+	}
+	//make the request
+	prodReq.open('POST', 'https://restore.financially92.hasura-app.io/products', true);
+	prodReq.setRequestHeader('Content-Type', 'application/json');
+	prodReq.send(JSON.stringify({
+		category_name: categoryName
+	}));
+	//}
+
+}
+
+function productDetails(prodID) {
+	var prodDetail= new XMLHttpRequest();
+
+	prodDetail.onreadystatechange= function(){
+		if (prodDetail.readyState === XMLHttpRequest.DONE){
+			if(prodDetail.status=== 200){
+				var response = JSON.parse(prodDetail.responseText);
+				document.getElementById("porDuct_yaha_hai").innerHTML = response;
+			}
+			else if(prodDetail.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(prodDetail.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log("Product Status Code:"+prodDetail.status+" Response "+prodDetail.responseText);
+			}
+		}
+	}
+	//make the request
+	prodDetail.open('POST', 'https://restore.financially92.hasura-app.io/product_info', true);
+	prodDetail.setRequestHeader('Content-Type', 'application/json');
+	prodDetail.send(JSON.stringify({
+		product_id: prodID
+	}));
+}
+
+function offerProducts() {
+	var prodDetail= new XMLHttpRequest();
+
+	prodDetail.onreadystatechange= function(){
+		if (prodDetail.readyState === XMLHttpRequest.DONE){
+			if(prodDetail.status=== 200){
+				var response = JSON.parse(prodDetail.responseText);
+				document.getElementById("offer_porDucts").innerHTML = response;
+			}
+			else if(prodDetail.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(prodDetail.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log("Product Status Code:"+prodDetail.status+" Response "+prodDetail.responseText);
+			}
+		}
+	}
+	//make the request
+	prodDetail.open('POST', 'https://restore.financially92.hasura-app.io/offers', true);
+	prodDetail.send(null);
+}
+
+function logout() {
+
+	var request= new XMLHttpRequest();
+
+	request.onreadystatechange= function(){
+		if (request.readyState === XMLHttpRequest.DONE){
+			if(request.status=== 200){
+				document.getElementById("logout_response").innerHTML = JSON.parse(request.responseText);
+			}
+			else if(request.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(request.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log(this.status);
+			}
+		}
+	}
+
+	//make the request
+	request.open('POST', 'https://restore.financially92.hasura-app.io/logout', true);
+	request.setRequestHeader('Content-Type', 'application/json');
+	request.send(JSON.stringify({
+		auth_token: authToken
+	}));
+}
+
+function operationArea() {
+	var areaReq= new XMLHttpRequest();
+
+	areaReq.onreadystatechange= function(){
+		if (areaReq.readyState === XMLHttpRequest.DONE){
+			if(areaReq.status=== 200){
+				var areaRes = JSON.parse(areaReq.responseText);
+				document.getElementById("areas").innerHTML = areaRes;
+			}
+			else if(areaReq.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(areaReq.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log("Product Status Code:"+areaReq.status+" Response "+areaReq.responseText);
+			}
+		}
+	}
+	//make the request
+	areaReq.open('POST', 'https://restore.financially92.hasura-app.io/oparea', true);
+	areaReq.setRequestHeader('Content-Type', 'application/json');
+	areaReq.send(null);
+}
+
+function submitRequest() {
+	//if(currentSelected and all details filled and pincode in service)
+	var requestID = 2;
+	var approxWeight = 15;
+	var houseDetail = "tyu";
+	var landmark = "iop";
+	var city = "fgj";
+	var state = "brdty";
+	var pincode = 465453;
+
+	var formReq= new XMLHttpRequest();
+
+	formReq.onreadystatechange= function(){
+		if (formReq.readyState === XMLHttpRequest.DONE){
+			if(formReq.status=== 200){
+				var formRes = JSON.parse(formReq.responseText);
+				document.getElementById("foram").innerHTML = formRes;
+			}
+			else if(formReq.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(formReq.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log("Product Status Code:"+formReq.status+" Response "+formReq.responseText);
+			}
+		}
+	}
+	//make the request
+	formReq.open('POST', 'https://restore.financially92.hasura-app.io/submitrequest', true);
+	formReq.setRequestHeader('Content-Type', 'application/json');
+	formReq.send(JSON.stringify({
+		request_id: requestID,
+		user_id: id,
+		auth_token: authToken,
+		Approximate_Weight: approxWeight,
+		House_Detail: houseDetail,
+		Landmark: landmark,
+		State: state,
+		Pincode: pincode,
+		City: city
+	}));
+}
+
+function filters() {
+
+	categoryName = "Garments";
+
+	var prodReq= new XMLHttpRequest();
+
+	prodReq.onreadystatechange= function(){
+		if (prodReq.readyState === XMLHttpRequest.DONE){
+			if(prodReq.status=== 200){
+				var prodRes = JSON.parse(prodReq.responseText);
+				/*var prodLen = prodRes.length;
+				var prodList;
+				for(var i=0; i < prodLen; i++) {
+					var data = {
+						prodID: prodRes[i].Product_ID,
+						price: prodRes[i].Price
+					}
+					prodList += createCardProdList(data);
+				}
+				document.getElementById("all_products").innerHTML = prodList;*/
+				document.getElementById("all_products").innerHTML = prodRes;
+			}
+			else if(prodReq.status=== 403){
+				console.log('Incorrect credentials');
+			}
+			else if(prodReq.status=== 500){
+				console.log('Something went wrong');
+			}
+			else{
+				console.log("Product Status Code:"+prodReq.status+" Response "+prodReq.responseText);
+			}
+		}
+	}
+	//make the request
+	prodReq.open('POST', 'https://restore.financially92.hasura-app.io/filters', true);
+	prodReq.setRequestHeader('Content-Type', 'application/json');
+	prodReq.send(JSON.stringify({
+		category_name: categoryName
+	}));
+}
+
+</script>
+
+</body>
+</html>

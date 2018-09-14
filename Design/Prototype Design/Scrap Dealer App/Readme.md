@@ -1,0 +1,1 @@
+To view the prototype in action, download the whole directory and run frame.html.

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+    <head>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- external style sheet-->
+      <link rel="stylesheet" href="E:\E-Commerce\css\diy.css"
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- third party library -->
+      <script src="https://use.fontawesome.com/8933f968b0.js"></script>
+       <!-- external javascript file-->
+      <script src="navbar.js"></script>
+      <script src="toggle.js"></script>
+      <script src="E:\E-Commerce\js.cookie.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body background="Elegant_Background-18.jpg">
+      <div class="main">
+      <section id="section1">
+      <div class="container-fluid" id="a">
+      <div class="row" id="b">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+              <h2>ReStore</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <form>
+               <div class="input-group">
+                 <input type="text" class="form-control" placeholder="Search for Products...">
+                 <div class="input-group-btn">
+                   <button class="btn btn-default" type="submit">
+                     <i class="glyphicon glyphicon-search"></i>
+                   </button>
+                 </div>
+               </div>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <div style="text-align:center;padding-top:10px;">
+                <strong>Credits:0</strong>
+                <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div id="profile_part" class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <div style="padding-top:10px;">
+            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Login/Register</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="section2">
+      <nav class="navbar navbar-inverse myc">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a class="active" href="E:\E-Commerce\indexfinal.html">Home</a></li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  Products<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="E:\E-Commerce\products.html">Clothes</a></li>
+                  <li><a href="#">Plastic items</a></li>
+                  <li><a href="#">Stationary</a></li>
+                  <li><a href="#">Furniture</a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </li>
+              <li><a href="E:\E-Commerce\diy.html">Do It Yourself</a></li>
+              <li id="scrap_part"><a data-toggle="modal" data-target="#myModal">For Scrap Sellers</a></li>
+              <li><a href="E:\E-Commerce\au.html">About Us</a></li>
+            </ul>
+          </div>
+      </nav>
+    </section>
+	
+<div class="menu">
+<div class="vertical-menu">
+  <a href="E:\E-Commerce\diy.html" class="active">Categories</a>
+  <a href="E:\E-Commerce\diy_c.html">Clothes</a>
+  <a href="E:\E-Commerce\diy_s.html">Covers</a>
+  <a href="E:\E-Commerce\diy_b.html">Bottles</a>
+  <a href="E:\E-Commerce\diy_p.html">Paper</a>
+ </div> 
+ 
+<div class="videos">
+
+
+<!–– covers –– >
+<iframe width="300" height="180" src="https://www.youtube.com/embed/3kC6aAMUUPE" frameborder="0" allowfullscreen></iframe>&nbsp 
+<iframe width="300" height="180" src="https://www.youtube.com/embed/tUh2EHErdiY" frameborder="0" allowfullscreen></iframe>
+<iframe width="300" height="180" src="https://www.youtube.com/embed/787VpNLjpmY" frameborder="0" allowfullscreen></iframe>
+<iframe width="300" height="180" src="https://www.youtube.com/embed/QKahKvABkc8" frameborder="0" allowfullscreen></iframe>
+
+
+</div>
+ <div class="footer">
+      <p>
+            Developers:hexagineers@iiitvadodara.ac.in
+      </p>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+  window.onload = function(){
+    Cookies.set('auth_token', "aaa");
+  auth_token = Cookies.get('auth_token');
+  if(auth_token !== "") {
+    document.getElementById("profile_part").innerHTML = `<div class="top">
+          <div style="padding-top:10px;">
+            <a href="E:/E-Commerce/cart.html"> <i class="fa fa-shopping-cart fa-3x" aria-hidden="true" ></i></a> 
+
+            <div class="dropdown" style="float:right; margin-right:2px;" >
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                 <i class="fa fa-user-circle fa-3x" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="E:/E-Commerce/profile.html">Profile</a></li>
+                  <li><a href="#">Logout</a></li>
+                </ul>
+              </div> 
+              
+              <div class="dropdown" style="float:right; margin-right:2px;">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  <i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                     
+                </ul>
+              </div>
+            </div>
+          </div>`
+  document.getElementById("scrap_part").innerHTML = `<a href="E:/E-Commerce/scraprequest.html">For Scrap Sellers</a>` 
+  }
+  
+}
+
+</script>

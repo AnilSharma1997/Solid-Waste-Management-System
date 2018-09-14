@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+    <head>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- external style sheet-->
+      <link rel="stylesheet" href="E:\E-Commerce\css\scraprequest.css"
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- third party library -->
+      <script src="https://use.fontawesome.com/8933f968b0.js"></script>
+       <!-- external javascript file-->
+      <script src="navbar.js"></script>
+      <script src="toggle.js"></script>
+      <script src="radioaction.js"></script>
+      
+      <script src="E:\E-Commerce\js.cookie.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body background="Elegant_Background-18.jpg">
+      <div class="main">
+      <section id="section1">
+      <div class="container-fluid" id="a">
+      <div class="row" id="b">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+              <h2>ReStore</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <form>
+               <div class="input-group">
+                 <input type="text" class="form-control" placeholder="Search for Products...">
+                 <div class="input-group-btn">
+                   <button class="btn btn-default" type="submit">
+                     <i class="glyphicon glyphicon-search"></i>
+                   </button>
+                 </div>
+               </div>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <div style="text-align:center;padding-top:10px;">
+                <strong>Credits:0</strong>
+                <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div id="profile_part" class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <div style="padding-top:10px;">
+            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Login/Register</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="section2">
+      <nav class="navbar navbar-inverse myc">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a class="active" href="E:\E-Commerce\indexfinal.html">Home</a></li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  Products<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="E:\E-Commerce\products.html">Clothes</a></li>
+                  <li><a href="#">Plastic items</a></li>
+                  <li><a href="#">Stationary</a></li>
+                  <li><a href="#">Furniture</a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </li>
+              <li><a href="E:\E-Commerce\diy.html">Do It Yourself</a></li>
+              <li id="scrap_part"><a data-toggle="modal" data-target="#myModal">For Scrap Sellers</a></li>
+              <li><a href="E:\E-Commerce\au.html">About Us</a></li>
+            </ul>
+          </div>
+      </nav>
+    </section>
+
+    <section id="section3">
+      <div class="container">
+        <h1>Request Form:</h1>
+        <p>Kindly enter your scrap details below.</p>
+        <p>On clicking Request pickup your scrap collection request will be sent to the scrapdealers.</p>
+            <form class="form-horizontal">
+                <div class="form-group" id="one">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3">Address:</label>
+                  <label class="radio-inline col-xs-12 col-sm-4 col-md-4 col-lg-4"><input type="radio" name="optradio" value="current">Current</label>
+                  <label class="radio-inline col-xs-12 col-sm-4 col-md-4 col-lg-4"><input type="radio" name="optradio" value="other">Other</label>
+                </div>
+                <div class="form-group" id="two">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3" for="housedetails">House details:</label>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <input type="address" class="form-control" id="housedetails" placeholder="Housedetails" name="housedetails">
+                  </div>
+                </div>
+                <div class="form-group" id="three">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3" for="landmark">Landmark</label>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <input type="address" class="form-control" id="landmark" placeholder="Landmark" name="landmark">
+                  </div>
+                </div>
+                <div class="form-group" id="four">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3" for="cdt">City/District/Town:</label>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <input type="address" class="form-control" id="cdt" placeholder="City/District/Town" name="cdt">
+                  </div>
+                </div>
+                <div class="form-group" id="five">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3" for="state">State</label>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <input type="address" class="form-control" id="state" placeholder="State" name="state">
+                  </div>
+                </div>
+                <div class="form-group" id="six">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3" for="pincode">Pincode</label>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <input type="address" class="form-control" id="pincode" placeholder="pincode" name="pincode">
+                  </div>
+                </div>
+                <div class="form-group" id="seven">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3" for="weight">Approx.weight:</label>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <input type="weight" class="form-control" id="weight" placeholder="Approx.wt(in kgs.)" name="weight">
+                  </div>
+                </div>
+                <div class="form-group" id="eight">
+                  <label class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3" for="s.type">Scrap Types:</label>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <input type="text" class="form-control" id="s.type" placeholder="Eg: Paper,Plastics,etc." name="s.type">
+                  </div>
+                </div>
+                <div class="form-group" id="nine">
+                  <div class="col-xs-offset-3 col-xs-9 col-sm-offset-3 col-sm-9 col-md-offset-3 col-md-9 col-lg-offset-3 col-lg-9">
+                    <button type="submit" class="btn btn-primary">Request Pickup</button>
+                  </div>
+                </div>
+            </form>
+      </div>
+    </section>
+
+    <section>
+        <!-- Modal HTML -->
+          <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-login">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="avatar">
+                    <img src="E:\E-Commerce\pics\loginavatar.png" alt="Avatar">
+                  </div>
+                  <h4 class="modal-title">User Login</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <form action="#" method="post">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <p><a href="register.html">New User? Sign In!</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  </body>
+</html>
+
+
+<script type="text/javascript">
+  window.onload = function(){
+    Cookies.set('auth_token', "aaa");
+  auth_token = Cookies.get('auth_token');
+  if(auth_token !== "") {
+    document.getElementById("profile_part").innerHTML = `<div class="top">
+          <div style="padding-top:10px;">
+            <a href="E:/E-Commerce/cart.html"> <i class="fa fa-shopping-cart fa-3x" aria-hidden="true" ></i></a> 
+
+            <div class="dropdown" style="float:right; margin-right:2px;" >
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                 <i class="fa fa-user-circle fa-3x" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="E:/E-Commerce/profile.html">Profile</a></li>
+                  <li><a href="#">Logout</a></li>
+                </ul>
+              </div> 
+              
+              <div class="dropdown" style="float:right; margin-right:2px;">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  <i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                     
+                </ul>
+              </div>
+            </div>
+          </div>`
+  document.getElementById("scrap_part").innerHTML = `<a href="E:/E-Commerce/scraprequest.html">For Scrap Sellers</a>` 
+  }
+  
+}
+
+</script>

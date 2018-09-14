@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+    <head>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- external style sheet-->
+      <link rel="stylesheet" href="E:\E-Commerce\css\indexfinal.css"
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- third party library -->
+      <script src="https://use.fontawesome.com/8933f968b0.js"></script>
+       <!-- external javascript file-->
+      <script src="navbar.js"></script>
+      <script src="toggle.js"></script>
+      <script src="E:\E-Commerce\js.cookie.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body background="Elegant_Background-18.jpg">
+      <div class="main">
+      <section id="section1">
+      <div class="container-fluid" id="a">
+      <div class="row" id="b">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+              <h2>ReStore</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <form>
+               <div class="input-group">
+                 <input type="text" class="form-control" placeholder="Search for Products...">
+                 <div class="input-group-btn">
+                   <button class="btn btn-default" type="submit">
+                     <i class="glyphicon glyphicon-search"></i>
+                   </button>
+                 </div>
+               </div>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <div style="text-align:center;padding-top:10px;">
+                <strong>Credits:0</strong>
+                <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div id="profile_part" class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <div style="padding-top:10px;">
+            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Login/Register</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="section2">
+      <nav class="navbar navbar-inverse myc">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a class="active" href="E:\E-Commerce\indexfinal.html">Home</a></li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  Products<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="E:\E-Commerce\products.html">Clothes</a></li>
+                  <li><a href="#">Plastic items</a></li>
+                  <li><a href="#">Stationary</a></li>
+                  <li><a href="#">Furniture</a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </li>
+              <li><a href="E:\E-Commerce\diy.html">Do It Yourself</a></li>
+              <li id="scrap_part"><a data-toggle="modal" data-target="#myModal">For Scrap Sellers</a></li>
+              <li><a href="E:\E-Commerce\au.html">About Us</a></li>
+            </ul>
+          </div>
+      </nav>
+    </section>
+  <section id="section3">
+    <div class="container-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+              <li data-target="#myCarousel" data-slide-to="4"></li>
+              <li data-target="#myCarousel" data-slide-to="5"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-responsive" src="E:\E-Commerce\pics\Garments.jpeg" alt="Garments">
+                <div class="carousel-caption">
+                  <h2>Latest</h2>
+                  <h3>Your look Your Impression!</h3>
+                </div>
+              </div>
+
+              <div class="item">
+                <img class="img-responsive" src="E:\E-Commerce\pics\Handicrafts.jpeg" alt="Handicrafts">
+                <div class="carousel-caption">
+                  <h2>Latest</h2>
+                  <h3>Made for festives!</h3>
+                </div>
+              </div>
+
+              <div class="item">
+                <img class="img-responsive" src="E:\E-Commerce\pics\Handicrafts2.jpeg" alt="Handicrafts">
+                <div class="carousel-caption">
+                  <h2>Latest</h2>
+                  <h3>Beautification counts!</h3>
+                </div>
+              </div>
+
+            <div class="item">
+              <img class="img-responsive" src="E:\E-Commerce\pics\Sofa.jpeg" alt="Sofa">
+              <div class="carousel-caption">
+                <h2>Offers</h2>
+                <h3>Feel the Comfort!</h3>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="img-responsive" src="E:\E-Commerce\pics\Notebook.jpeg" alt="Notebook">
+              <div class="carousel-caption">
+                <h2>Offers</h2>
+                <h3>Notebook for studious!</h3>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="img-responsive" src="E:\E-Commerce\pics\Boots.jpeg" alt="Shoes">
+              <div class="carousel-caption">
+                <h2>Suggested</h2>
+                <h3>Prepare for Winter!</h3>
+              </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+       </div>
+      </div>
+    </div>
+  </section>
+    <section id="section4">
+      <div class="container-fluid">
+        <h1><strong>TRY OUR EXCLUSIVE COLLECTION</strong></h1>
+        <p>The ultimate collection of recycled goods made of Waste materials
+          manufactured by some of the top class recycled products manufacturing
+          companies.That too for the cost of your discarded waste!</p>
+        </div>
+    </section>
+
+    <section id="section5">
+      <footer>
+            Developers:hexagineers@iiitvadodara.ac.in
+      </footer>
+    </section>
+
+    <section>
+        <!-- Modal HTML -->
+          <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-login">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="avatar">
+                    <img src="E:\E-Commerce\pics\loginavatar.png" alt="Avatar">
+                  </div>
+                  <h4 class="modal-title">User Login</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <form action="#" method="post">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                    </div>
+                    <div class="form-group">
+                      <a href="E:\E-Commerce\indexfinal2.html"><button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button></a>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <p><a href="E:\E-Commerce\register.html">New User? Sign In!</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+  </div>
+  </body>
+</html>
+
+
+<script type="text/javascript">
+  window.onload = function(){
+    Cookies.set('auth_token', "aaa");
+  auth_token = Cookies.get('auth_token');
+  if(auth_token !== "") {
+    document.getElementById("profile_part").innerHTML = `<div class="top">
+          <div style="padding-top:10px;">
+            <a href="E:/E-Commerce/cart.html"> <i class="fa fa-shopping-cart fa-3x" aria-hidden="true" ></i></a> 
+
+            <div class="dropdown" style="float:right; margin-right:2px;" >
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                 <i class="fa fa-user-circle fa-3x" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="E:/E-Commerce/profile.html">Profile</a></li>
+                  <li><a href="#">Logout</a></li>
+                </ul>
+              </div> 
+              
+              <div class="dropdown" style="float:right; margin-right:2px;">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  <i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                  <button onclick="myFunction()" class="dropbtn">11/11/2017 : Review you pickup</button>
+                     
+                </ul>
+              </div>
+
+
+
+            </div>
+          </div>`
+  document.getElementById("scrap_part").innerHTML = `<a href="E:/E-Commerce/scraprequest.html">For Scrap Sellers</a>` 
+  
+   
+    
+   
+  }
+  
+}
+
+</script>
